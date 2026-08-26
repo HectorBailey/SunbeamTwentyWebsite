@@ -271,6 +271,28 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        /* Language toggle */
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border: 1px solid #d4af37;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: #4a5568;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-toggle:hover {
+            background: #d4af37;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -288,14 +310,16 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex md:items-center md:space-x-8">
-                    <a href="#about" class="text-gray-600 hover:text-gray-900 font-medium">About Sunbeam</a>
-                    <a href="#aboutcar" class="text-gray-600 hover:text-gray-900 font-medium">This Car</a>
-                    <a href="#specifications" class="text-gray-600 hover:text-gray-900 font-medium">Specifications</a>
-                    <a href="#gallery" class="text-gray-600 hover:text-gray-900 font-medium">Gallery</a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.about">About Sunbeam</a>
+                    <a href="#aboutcar" class="text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.car">This Car</a>
+                    <a href="#specifications" class="text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.specs">Specifications</a>
+                    <a href="#gallery" class="text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.gallery">Gallery</a>
+                    <button type="button" class="lang-toggle" data-lang-toggle onclick="toggleLang()" aria-label="Version française" title="Version française">🇫🇷 FR</button>
                 </div>
                 
                 <!-- Mobile Navigation Button -->
-                <div class="md:hidden flex items-center">
+                <div class="md:hidden flex items-center space-x-4">
+                    <button type="button" class="lang-toggle" data-lang-toggle onclick="toggleLang()" aria-label="Version française" title="Version française">🇫🇷 FR</button>
                     <div id="mobile-menu-button" class="hamburger-icon">
                         <span></span>
                         <span></span>
@@ -308,10 +332,10 @@
             <!-- Mobile Navigation Menu -->
             <div id="mobile-menu" class="md:hidden mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium">About Sunbeam</a>
-                    <a href="#aboutcar" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium">This Car</a>
-                    <a href="#specifications" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium">Specifications</a>
-                    <a href="#gallery" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium">Gallery</a>
+                    <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.about">About Sunbeam</a>
+                    <a href="#aboutcar" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.car">This Car</a>
+                    <a href="#specifications" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.specs">Specifications</a>
+                    <a href="#gallery" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.gallery">Gallery</a>
                 </div>
             </div>
         </div>
@@ -320,53 +344,53 @@
     <!-- Hero Section -->
     <header class="hero-pattern py-24">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">The Sunbeam Twenty Tourer</h1>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4" data-i18n="hero.title">The Sunbeam Twenty Tourer</h1>
             <div class="art-deco-divider mx-auto my-8 w-24"></div>
-            <p class="text-xl mb-10">A magnificent example of British automotive engineering from the golden age of motoring</p>
-            <a href="#aboutcar" class="contact-button py-3 px-8 rounded-md text-lg font-medium inline-block">Explore the Details</a>
+            <p class="text-xl mb-10" data-i18n="hero.sub">A magnificent example of British automotive engineering from the golden age of motoring</p>
+            <a href="#aboutcar" class="contact-button py-3 px-8 rounded-md text-lg font-medium inline-block" data-i18n="hero.cta">Explore the Details</a>
         </div>
     </header>
 
     <!-- About Sunbeam Section -->
     <section id="about" class="py-16 bg-white">
         <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">About Sunbeam Motor Car Company</h2>
+            <h2 class="text-3xl font-bold text-center mb-12" data-i18n="about.title">About Sunbeam Motor Car Company</h2>
             
             <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
                 <div>
-                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed" data-i18n="about.p1">
                         The Sunbeam Motor Car Company Limited was one of Britain's most prestigious automotive manufacturers, renowned for their quality engineering and sporting achievements. Founded in Wolverhampton, Sunbeam built a reputation for producing some of the finest motorcars of the early 20th century.
                     </p>
-                    <p class="text-gray-600 text-lg leading-relaxed">
+                    <p class="text-gray-600 text-lg leading-relaxed" data-i18n="about.p2">
                         The company was particularly famous for their racing successes, including multiple land speed records and victories at prestigious events like the French Grand Prix. Their road cars combined this racing heritage with luxurious appointments and meticulous craftsmanship.
                     </p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-center">Company Timeline</h3>
+                    <h3 class="text-xl font-bold mb-4 text-center" data-i18n="timeline.title">Company Timeline</h3>
                     <div class="space-y-4">
                         <div class="timeline-item">
                             <div class="font-semibold">1899</div>
-                            <div class="text-gray-600">John Marston founded Sunbeam Motor Car Company</div>
+                            <div class="text-gray-600" data-i18n="timeline.1899">John Marston founded Sunbeam Motor Car Company</div>
                         </div>
                         <div class="timeline-item">
                             <div class="font-semibold">1905</div>
-                            <div class="text-gray-600">Moved to purpose-built factory in Wolverhampton</div>
+                            <div class="text-gray-600" data-i18n="timeline.1905">Moved to purpose-built factory in Wolverhampton</div>
                         </div>
                         <div class="timeline-item">
                             <div class="font-semibold">1912</div>
-                            <div class="text-gray-600">Became part of STD Motors (Sunbeam-Talbot-Darracq)</div>
+                            <div class="text-gray-600" data-i18n="timeline.1912">Became part of STD Motors (Sunbeam-Talbot-Darracq)</div>
                         </div>
                         <div class="timeline-item">
-                            <div class="font-semibold">1920s</div>
-                            <div class="text-gray-600">Golden era - racing success and luxury car production</div>
+                            <div class="font-semibold" data-i18n="timeline.1920s.label">1920s</div>
+                            <div class="text-gray-600" data-i18n="timeline.1920s">Golden era: racing success and luxury car production</div>
                         </div>
                         <div class="timeline-item">
                             <div class="font-semibold">1927</div>
-                            <div class="text-gray-600">Land speed record: 203.79 mph with the Sunbeam 1000 HP</div>
+                            <div class="text-gray-600" data-i18n="timeline.1927">Land speed record: 203.79 mph with the Sunbeam 1000 HP</div>
                         </div>
                         <div class="timeline-item">
                             <div class="font-semibold">1935</div>
-                            <div class="text-gray-600">Company ceased independent operation during Great Depression</div>
+                            <div class="text-gray-600" data-i18n="timeline.1935">Company ceased independent operation during Great Depression</div>
                         </div>
                     </div>
                 </div>
@@ -378,41 +402,41 @@
     <!-- About the car section -->
     <section id="aboutcar" class="py-16">
         <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">About the Car</h2>
+            <h2 class="text-3xl font-bold text-center mb-12" data-i18n="car.title">About the Car</h2>
             <p class="text-gray-700 text-lg leading-relaxed">
-                It has had a fascinating <span id="carAge">ninety-one</span> years of life since its creation in 1934. It is the only Sunbeam Twenty tourer produced, a one-off, supplied by John Croall & Sons to the Fry family to special order
+                <span data-i18n="car.p1a">It has had a fascinating</span> <span id="carAge">ninety-one</span> <span data-i18n="car.p1b">years of life since its creation in 1934. It is the only Sunbeam Twenty tourer produced, a one-off, supplied by John Croall &amp; Sons to the Fry family to special order.</span>
             </p>
-            <p class="pt-2 text-gray-700 text-lg leading-relaxed">
+            <p class="pt-2 text-gray-700 text-lg leading-relaxed" data-i18n="car.p2">
                 In 1939 it was laid up in Scotland where it stayed until 1958. It was brought back to life and driven south with a sump full of good Scottish water, a journey that cost it a number of bearings. It found a temporary home with a London boys' club in the late 1950s, before being acquired by a Sunbeam specialist in 1960 who owned and cherished it for 50 years. The acquisition was made not for hard cash, but in exchange for 2 bell tents and a remould tyre for a Bedford van. Over its lifetime, it is estimated to have covered over 500,000 miles.</p>
-            <p class="pt-2 text-gray-700 text-lg leading-relaxed">
-               Brake and gear lever conspire together to make entry to the driving seat an acrobatic feat—though with practice and a commitment to pilates, access from the driver's side is achievable. The driving position is good: one sits low down and looks along the long bonnet through a shallow windscreen at a view of the road that is only slightly obscured by the mascot that sits atop the radiator filler cap. There is a four-speed gear box with no synchromesh but featuring a silent third gear. The large engine (2916 cc) plus the comparatively light body, plus, perhaps a rather low gear ratio, makes the car very flexible: it will accelerate in third from walking pace and drop down to 15mph in top without complaint.</p>
+            <p class="pt-2 text-gray-700 text-lg leading-relaxed" data-i18n="car.p3">
+               Brake and gear lever conspire together to make entry to the driving seat an acrobatic feat, though with practice and a commitment to pilates, access from the driver's side is achievable. The driving position is good: one sits low down and looks along the long bonnet through a shallow windscreen at a view of the road that is only slightly obscured by the mascot that sits atop the radiator filler cap. There is a four-speed gear box with no synchromesh but featuring a silent third gear. The large engine (2916 cc) plus the comparatively light body, plus, perhaps a rather low gear ratio, makes the car very flexible: it will accelerate in third from walking pace and drop down to 15mph in top without complaint.</p>
         </div>
     </section>
 
     <!-- Gallery Section -->
     <section id="gallery" class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-3">Historic Photo Gallery</h2>
-            <p class="text-center text-gray-600 mb-12">A collection of vintage photographs showcasing the Sunbeam Twenty Tourer</p>
+            <h2 class="text-3xl font-bold text-center mb-3" data-i18n="gallery.title">Historic Photo Gallery</h2>
+            <p class="text-center text-gray-600 mb-12" data-i18n="gallery.sub">A collection of vintage photographs showcasing the Sunbeam Twenty Tourer</p>
             
             <div class="gallery-grid">
-                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal('img/Silverstone1963.JPG', 'Silverstone Circuit - 1963', 'A memorable moment at Silverstone Circuit in 1963, during the golden age of British motorsport.')">
-                    <img src="img/Silverstone1963.JPG" alt="Silverstone 1963" class="w-full h-full object-cover">
+                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal(0)">
+                    <img src="img/Silverstone1963.JPG" alt="Silverstone 1963" data-i18n-alt="gallery.0.title" class="w-full h-full object-cover">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal('img/Inter-Register Driving Tests Morchard Bishop 21.04.74.jpg', 'Inter-Register Driving Tests - 1974', 'Historic driving tests at Morchard Bishop on April 21st, 1974, demonstrating the enduring appeal of classic motoring.')">
-                    <img src="img/Inter-Register Driving Tests Morchard Bishop 21.04.74.jpg" alt="Driving Tests 1974" class="w-full h-full object-cover">
+                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal(1)">
+                    <img src="img/Inter-Register Driving Tests Morchard Bishop 21.04.74.jpg" alt="Driving Tests 1974" data-i18n-alt="gallery.1.title" class="w-full h-full object-cover">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal('img/Brooklands-July-2022.jpg', 'Brooklands Circuit - July 2022', 'A beautiful summer day at the historic Brooklands racing circuit, Celebrating the 100 year since Kenelm Lee Guinness set the final land speed record on a closed track, in the 350hp Sunbeam at Brooklands.')">
-                    <img src="img/Brooklands-July-2022.jpg" alt="Brooklands Circuit 2022" class="w-full h-full object-cover">
+                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal(2)">
+                    <img src="img/Brooklands-July-2022.jpg" alt="Brooklands Circuit 2022" data-i18n-alt="gallery.2.title" class="w-full h-full object-cover">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal('img/LondonTalbotRally 1969.jpg', 'London Talbot Rally - 1969', 'The London Talbot Rally of 1969, capturing the spirit of vintage rallying and automotive adventure.')">
-                    <img src="img/LondonTalbotRally 1969.jpg" alt="London Talbot Rally 1969" class="w-full h-full object-cover">
+                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal(3)">
+                    <img src="img/LondonTalbotRally 1969.jpg" alt="London Talbot Rally 1969" data-i18n-alt="gallery.3.title" class="w-full h-full object-cover">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal('img/MovingBuildingMaterials.jpg', 'Moving Building Materials', 'Practical application of vintage automobiles in everyday work, Still used as a daily driver')">
-                    <img src="img/MovingBuildingMaterials.jpg" alt="Moving Building Materials" class="w-full h-full object-cover">
+                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal(4)">
+                    <img src="img/MovingBuildingMaterials.jpg" alt="Moving Building Materials" data-i18n-alt="gallery.4.title" class="w-full h-full object-cover">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal('img/Unkown.jpg', 'Historic Vintage Scene', 'An unknown vintage racing event (assumed 1960-1970)')">
-                    <img src="img/Unkown.jpg" alt="Historic Scene" class="w-full h-full object-cover">
+                <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" onclick="openModal(5)">
+                    <img src="img/Unkown.jpg" alt="Historic Scene" data-i18n-alt="gallery.5.title" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -421,7 +445,7 @@
     <!-- Specifications Section -->
     <section id="specifications" class="py-16 bg-gray-50">
         <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Technical Specifications</h2>
+            <h2 class="text-3xl font-bold text-center mb-12" data-i18n="specs.title">Technical Specifications</h2>
             
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Engine Specifications -->
@@ -430,27 +454,27 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        Engine Specifications
+                        <span data-i18n="specs.engine">Engine Specifications</span>
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Bore:</span>
-                            <span class="font-medium">2.95" (75 mm)</span>
+                            <span class="text-gray-600" data-i18n="specs.bore">Bore:</span>
+                            <span class="font-medium" data-i18n="specs.bore.value">2.95" (75 mm)</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Stroke:</span>
-                            <span class="font-medium">4.33" (110 mm)</span>
+                            <span class="text-gray-600" data-i18n="specs.stroke">Stroke:</span>
+                            <span class="font-medium" data-i18n="specs.stroke.value">4.33" (110 mm)</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Cubic Capacity:</span>
-                            <span class="font-medium">177.9 cu. in. (2916 c.c.)</span>
+                            <span class="text-gray-600" data-i18n="specs.capacity">Cubic Capacity:</span>
+                            <span class="font-medium" data-i18n="specs.capacity.value">177.9 cu. in. (2916 c.c.)</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">R.A.C. Rating:</span>
-                            <span class="font-medium">20.9 h.p.</span>
+                            <span class="text-gray-600" data-i18n="specs.rac">R.A.C. Rating:</span>
+                            <span class="font-medium" data-i18n="specs.rac.value">20.9 h.p.</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Tax:</span>
+                            <span class="text-gray-600" data-i18n="specs.tax">Tax:</span>
                             <span class="font-medium">£21</span>
                         </div>
                     </div>
@@ -462,28 +486,28 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4a1 1 0 011-1h14a1 1 0 011 1v4M4 8h16M4 8v8a1 1 0 001 1h14a1 1 0 001-1V8" />
                         </svg>
-                        Dimensions & Clearances
+                        <span data-i18n="specs.dims">Dimensions &amp; Clearances</span>
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Wheelbase:</span>
-                            <span class="font-medium">10' 0" (305 cm)</span>
+                            <span class="text-gray-600" data-i18n="specs.wheelbase">Wheelbase:</span>
+                            <span class="font-medium" data-i18n="specs.wheelbase.value">10' 0" (305 cm)</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Track:</span>
-                            <span class="font-medium">4' 7⅝" (142 cm)</span>
+                            <span class="text-gray-600" data-i18n="specs.track">Track:</span>
+                            <span class="font-medium" data-i18n="specs.track.value">4' 7⅝" (142 cm)</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Length Overall:</span>
-                            <span class="font-medium">13' 8" (416.5 cm)</span>
+                            <span class="text-gray-600" data-i18n="specs.length">Length Overall:</span>
+                            <span class="font-medium" data-i18n="specs.length.value">13' 8" (416.5 cm)</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Width Overall:</span>
-                            <span class="font-medium">5' 10" (177.8 cm)</span>
+                            <span class="text-gray-600" data-i18n="specs.width">Width Overall:</span>
+                            <span class="font-medium" data-i18n="specs.width.value">5' 10" (177.8 cm)</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Ground Clearance:</span>
-                            <span class="font-medium">6" (15 cm)</span>
+                            <span class="text-gray-600" data-i18n="specs.ground">Ground Clearance:</span>
+                            <span class="font-medium" data-i18n="specs.ground.value">6" (15 cm)</span>
                         </div>
                     </div>
                 </div>
@@ -494,16 +518,16 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        Performance
+                        <span data-i18n="specs.perf">Performance</span>
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Top Speed:</span>
-                            <span class="font-medium">82 mph</span>
+                            <span class="text-gray-600" data-i18n="specs.topspeed">Top Speed:</span>
+                            <span class="font-medium" data-i18n="specs.topspeed.value">82 mph</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Horsepower:</span>
-                            <span class="font-medium">72 hp</span>
+                            <span class="text-gray-600" data-i18n="specs.hp">Horsepower:</span>
+                            <span class="font-medium" data-i18n="specs.hp.value">72 hp</span>
                         </div>
                     </div>
                 </div>
@@ -515,16 +539,16 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
                         </svg>
-                        Wheels & Tyres
+                        <span data-i18n="specs.wheels">Wheels &amp; Tyres</span>
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Front Tyres:</span>
-                            <span class="font-medium">5¼" for 20" rim</span>
+                            <span class="text-gray-600" data-i18n="specs.front">Front Tyres:</span>
+                            <span class="font-medium" data-i18n="specs.front.value">5¼" for 20" rim</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Rear Tyres:</span>
-                            <span class="font-medium">30" × 5.25"</span>
+                            <span class="text-gray-600" data-i18n="specs.rear">Rear Tyres:</span>
+                            <span class="font-medium" data-i18n="specs.rear.value">30" × 5.25"</span>
                         </div>
                     </div>
                 </div>
@@ -536,7 +560,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p>&copy; 2024 The Sunbeam Twenty Tourer. A tribute to British automotive heritage.</p>
+            <p data-i18n="footer">&copy; 2024 The Sunbeam Twenty Tourer. A tribute to British automotive heritage.</p>
         </div>
     </footer>
 
@@ -553,6 +577,223 @@
     </div>
 
     <script>
+        // ---------------------------------------------------------------
+        // Translations (English / French)
+        // ---------------------------------------------------------------
+        const TRANSLATIONS = {
+            en: {
+                'page.title': 'The Sunbeam Twenty Tourer',
+                'lang.switch': '🇫🇷 FR',
+                'lang.switch.label': 'Version française',
+                'nav.about': 'About Sunbeam',
+                'nav.car': 'This Car',
+                'nav.specs': 'Specifications',
+                'nav.gallery': 'Gallery',
+                'hero.title': 'The Sunbeam Twenty Tourer',
+                'hero.sub': 'A magnificent example of British automotive engineering from the golden age of motoring',
+                'hero.cta': 'Explore the Details',
+                'about.title': 'About Sunbeam Motor Car Company',
+                'about.p1': "The Sunbeam Motor Car Company Limited was one of Britain's most prestigious automotive manufacturers, renowned for their quality engineering and sporting achievements. Founded in Wolverhampton, Sunbeam built a reputation for producing some of the finest motorcars of the early 20th century.",
+                'about.p2': 'The company was particularly famous for their racing successes, including multiple land speed records and victories at prestigious events like the French Grand Prix. Their road cars combined this racing heritage with luxurious appointments and meticulous craftsmanship.',
+                'timeline.title': 'Company Timeline',
+                'timeline.1899': 'John Marston founded Sunbeam Motor Car Company',
+                'timeline.1905': 'Moved to purpose-built factory in Wolverhampton',
+                'timeline.1912': 'Became part of STD Motors (Sunbeam-Talbot-Darracq)',
+                'timeline.1920s.label': '1920s',
+                'timeline.1920s': 'Golden era: racing success and luxury car production',
+                'timeline.1927': 'Land speed record: 203.79 mph with the Sunbeam 1000 HP',
+                'timeline.1935': 'Company ceased independent operation during Great Depression',
+                'car.title': 'About the Car',
+                'car.p1a': 'It has had a fascinating',
+                'car.p1b': 'years of life since its creation in 1934. It is the only Sunbeam Twenty tourer produced, a one-off, supplied by John Croall & Sons to the Fry family to special order.',
+                'car.p2': "In 1939 it was laid up in Scotland where it stayed until 1958. It was brought back to life and driven south with a sump full of good Scottish water, a journey that cost it a number of bearings. It found a temporary home with a London boys' club in the late 1950s, before being acquired by a Sunbeam specialist in 1960 who owned and cherished it for 50 years. The acquisition was made not for hard cash, but in exchange for 2 bell tents and a remould tyre for a Bedford van. Over its lifetime, it is estimated to have covered over 500,000 miles.",
+                'car.p3': "Brake and gear lever conspire together to make entry to the driving seat an acrobatic feat, though with practice and a commitment to pilates, access from the driver's side is achievable. The driving position is good: one sits low down and looks along the long bonnet through a shallow windscreen at a view of the road that is only slightly obscured by the mascot that sits atop the radiator filler cap. There is a four-speed gear box with no synchromesh but featuring a silent third gear. The large engine (2916 cc) plus the comparatively light body, plus, perhaps a rather low gear ratio, makes the car very flexible: it will accelerate in third from walking pace and drop down to 15mph in top without complaint.",
+                'gallery.title': 'Historic Photo Gallery',
+                'gallery.sub': 'A collection of vintage photographs showcasing the Sunbeam Twenty Tourer',
+                'gallery.0.title': 'Silverstone Circuit - 1963',
+                'gallery.0.desc': 'A memorable moment at Silverstone Circuit in 1963, during the golden age of British motorsport.',
+                'gallery.1.title': 'Inter-Register Driving Tests - 1974',
+                'gallery.1.desc': 'Historic driving tests at Morchard Bishop on April 21st, 1974, demonstrating the enduring appeal of classic motoring.',
+                'gallery.2.title': 'Brooklands Circuit - July 2022',
+                'gallery.2.desc': 'A beautiful summer day at the historic Brooklands racing circuit, celebrating 100 years since Kenelm Lee Guinness set the final land speed record on a closed track, in the 350hp Sunbeam at Brooklands.',
+                'gallery.3.title': 'London Talbot Rally - 1969',
+                'gallery.3.desc': 'The London Talbot Rally of 1969, capturing the spirit of vintage rallying and automotive adventure.',
+                'gallery.4.title': 'Moving Building Materials',
+                'gallery.4.desc': 'Practical application of vintage automobiles in everyday work; still used as a daily driver.',
+                'gallery.5.title': 'Historic Vintage Scene',
+                'gallery.5.desc': 'An unknown vintage racing event (assumed 1960-1970)',
+                'specs.title': 'Technical Specifications',
+                'specs.engine': 'Engine Specifications',
+                'specs.bore': 'Bore:',
+                'specs.bore.value': '2.95" (75 mm)',
+                'specs.stroke': 'Stroke:',
+                'specs.stroke.value': '4.33" (110 mm)',
+                'specs.capacity': 'Cubic Capacity:',
+                'specs.capacity.value': '177.9 cu. in. (2916 c.c.)',
+                'specs.rac': 'R.A.C. Rating:',
+                'specs.rac.value': '20.9 h.p.',
+                'specs.tax': 'Tax:',
+                'specs.dims': 'Dimensions & Clearances',
+                'specs.wheelbase': 'Wheelbase:',
+                'specs.wheelbase.value': '10\' 0" (305 cm)',
+                'specs.track': 'Track:',
+                'specs.track.value': '4\' 7⅝" (142 cm)',
+                'specs.length': 'Length Overall:',
+                'specs.length.value': '13\' 8" (416.5 cm)',
+                'specs.width': 'Width Overall:',
+                'specs.width.value': '5\' 10" (177.8 cm)',
+                'specs.ground': 'Ground Clearance:',
+                'specs.ground.value': '6" (15 cm)',
+                'specs.perf': 'Performance',
+                'specs.topspeed': 'Top Speed:',
+                'specs.topspeed.value': '82 mph',
+                'specs.hp': 'Horsepower:',
+                'specs.hp.value': '72 hp',
+                'specs.wheels': 'Wheels & Tyres',
+                'specs.front': 'Front Tyres:',
+                'specs.front.value': '5¼" for 20" rim',
+                'specs.rear': 'Rear Tyres:',
+                'specs.rear.value': '30" × 5.25"',
+                'footer': '© 2024 The Sunbeam Twenty Tourer. A tribute to British automotive heritage.'
+            },
+            fr: {
+                'page.title': 'La Sunbeam Twenty Tourer',
+                'lang.switch': '🇬🇧 EN',
+                'lang.switch.label': 'English version',
+                'nav.about': 'À propos de Sunbeam',
+                'nav.car': 'Cette voiture',
+                'nav.specs': 'Caractéristiques',
+                'nav.gallery': 'Galerie',
+                'hero.title': 'La Sunbeam Twenty Tourer',
+                'hero.sub': "Un magnifique exemple de l'ingénierie automobile britannique de l'âge d'or de l'automobile",
+                'hero.cta': 'Découvrir en détail',
+                'about.title': 'À propos de la Sunbeam Motor Car Company',
+                'about.p1': "La Sunbeam Motor Car Company Limited était l'un des constructeurs automobiles les plus prestigieux de Grande-Bretagne, réputé pour la qualité de son ingénierie et ses succès sportifs. Fondée à Wolverhampton, Sunbeam s'est forgé une réputation en produisant certaines des plus belles automobiles du début du XXe siècle.",
+                'about.p2': "La marque était particulièrement célèbre pour ses succès en compétition, notamment plusieurs records de vitesse terrestre et des victoires lors d'épreuves prestigieuses comme le Grand Prix de France. Ses voitures de route alliaient cet héritage de la course à des aménagements luxueux et à une fabrication méticuleuse.",
+                'timeline.title': "Chronologie de l'entreprise",
+                'timeline.1899': 'John Marston fonde la Sunbeam Motor Car Company',
+                'timeline.1905': 'Installation dans une usine construite sur mesure à Wolverhampton',
+                'timeline.1912': 'Intégration au groupe STD Motors (Sunbeam-Talbot-Darracq)',
+                'timeline.1920s.label': 'Années 1920',
+                'timeline.1920s': "Âge d'or : succès en course et production de voitures de luxe",
+                'timeline.1927': 'Record de vitesse terrestre : 327,97 km/h (203,79 mph) avec la Sunbeam 1000 HP',
+                'timeline.1935': "L'entreprise cesse ses activités indépendantes pendant la Grande Dépression",
+                'car.title': 'À propos de la voiture',
+                'car.p1a': 'Elle a connu',
+                'car.p1b': "années d'une vie fascinante depuis sa création en 1934. C'est la seule Sunbeam Twenty tourer jamais produite, un exemplaire unique, livrée par John Croall & Sons à la famille Fry sur commande spéciale.",
+                'car.p2': "En 1939, elle fut remisée en Écosse, où elle resta jusqu'en 1958. Ramenée à la vie, elle fut conduite vers le sud avec un carter rempli de bonne eau écossaise, un voyage qui lui coûta plusieurs coussinets. Elle trouva un foyer temporaire dans un club de jeunes garçons londonien à la fin des années 1950, avant d'être acquise en 1960 par un spécialiste Sunbeam qui la posséda et la chérit pendant 50 ans. L'acquisition ne se fit pas contre espèces sonnantes, mais en échange de deux tentes en cloche et d'un pneu rechapé pour une camionnette Bedford. Au cours de sa vie, on estime qu'elle a parcouru plus de 800 000 km (500 000 miles).",
+                'car.p3': "Le levier de frein et le levier de vitesses conspirent pour faire de l'accès au siège du conducteur un exercice acrobatique, même si, avec de l'entraînement et un peu de pilates, on parvient à monter par le côté conducteur. La position de conduite est bonne : on est assis bas et l'on regarde le long du capot, à travers un pare-brise peu profond, une route à peine masquée par la mascotte qui trône sur le bouchon de radiateur. La boîte à quatre vitesses est dépourvue de synchroniseurs, mais dispose d'une troisième silencieuse. Le gros moteur (2 916 cm³), la carrosserie relativement légère et, peut-être, un rapport de pont assez court rendent la voiture très souple : elle accélère en troisième depuis l'allure du pas et descend sans rechigner à 25 km/h (15 mph) en prise directe.",
+                'gallery.title': 'Galerie de photos historiques',
+                'gallery.sub': "Une collection de photographies d'époque mettant en valeur la Sunbeam Twenty Tourer",
+                'gallery.0.title': 'Circuit de Silverstone - 1963',
+                'gallery.0.desc': "Un moment mémorable sur le circuit de Silverstone en 1963, à l'âge d'or du sport automobile britannique.",
+                'gallery.1.title': 'Épreuves de maniabilité Inter-Register - 1974',
+                'gallery.1.desc': "Épreuves de conduite historiques à Morchard Bishop le 21 avril 1974, témoignant de l'attrait durable de l'automobile ancienne.",
+                'gallery.2.title': 'Circuit de Brooklands - juillet 2022',
+                'gallery.2.desc': "Une belle journée d'été sur le circuit historique de Brooklands, pour célébrer le centenaire du dernier record de vitesse terrestre établi sur circuit fermé par Kenelm Lee Guinness, au volant de la Sunbeam 350 ch, à Brooklands.",
+                'gallery.3.title': 'Rallye Talbot de Londres - 1969',
+                'gallery.3.desc': "Le rallye Talbot de Londres en 1969, dans l'esprit des rallyes d'époque et de l'aventure automobile.",
+                'gallery.4.title': 'Transport de matériaux de construction',
+                'gallery.4.desc': "L'usage pratique d'une automobile ancienne au travail quotidien ; toujours utilisée tous les jours.",
+                'gallery.5.title': "Scène d'époque",
+                'gallery.5.desc': "Une épreuve de course d'époque non identifiée (probablement entre 1960 et 1970)",
+                'specs.title': 'Caractéristiques techniques',
+                'specs.engine': 'Moteur',
+                'specs.bore': 'Alésage :',
+                'specs.bore.value': '75 mm (2,95 po)',
+                'specs.stroke': 'Course :',
+                'specs.stroke.value': '110 mm (4,33 po)',
+                'specs.capacity': 'Cylindrée :',
+                'specs.capacity.value': '2 916 cm³ (177,9 cu. in.)',
+                'specs.rac': 'Puissance fiscale R.A.C. :',
+                'specs.rac.value': '20,9 ch',
+                'specs.tax': 'Taxe :',
+                'specs.dims': 'Dimensions et garde au sol',
+                'specs.wheelbase': 'Empattement :',
+                'specs.wheelbase.value': '305 cm (10\' 0")',
+                'specs.track': 'Voie :',
+                'specs.track.value': '142 cm (4\' 7⅝")',
+                'specs.length': 'Longueur hors tout :',
+                'specs.length.value': '416,5 cm (13\' 8")',
+                'specs.width': 'Largeur hors tout :',
+                'specs.width.value': '177,8 cm (5\' 10")',
+                'specs.ground': 'Garde au sol :',
+                'specs.ground.value': '15 cm (6")',
+                'specs.perf': 'Performances',
+                'specs.topspeed': 'Vitesse maximale :',
+                'specs.topspeed.value': '132 km/h (82 mph)',
+                'specs.hp': 'Puissance :',
+                'specs.hp.value': '72 ch',
+                'specs.wheels': 'Roues et pneus',
+                'specs.front': 'Pneus avant :',
+                'specs.front.value': '5¼" pour jante de 20"',
+                'specs.rear': 'Pneus arrière :',
+                'specs.rear.value': '30" × 5,25"',
+                'footer': '© 2024 La Sunbeam Twenty Tourer. Un hommage au patrimoine automobile britannique.'
+            }
+        };
+
+        const GALLERY_IMAGES = [
+            'img/Silverstone1963.JPG',
+            'img/Inter-Register Driving Tests Morchard Bishop 21.04.74.jpg',
+            'img/Brooklands-July-2022.jpg',
+            'img/LondonTalbotRally 1969.jpg',
+            'img/MovingBuildingMaterials.jpg',
+            'img/Unkown.jpg'
+        ];
+
+        let currentLang = 'en';
+        let currentModalIndex = null;
+
+        function t(key) {
+            return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) || TRANSLATIONS.en[key] || '';
+        }
+
+        function detectInitialLang() {
+            const params = new URLSearchParams(window.location.search);
+            const fromUrl = params.get('lang');
+            if (fromUrl && TRANSLATIONS[fromUrl]) return fromUrl;
+            try {
+                const stored = localStorage.getItem('lang');
+                if (stored && TRANSLATIONS[stored]) return stored;
+            } catch (e) { /* storage unavailable */ }
+            const browser = (navigator.language || '').toLowerCase();
+            return browser.startsWith('fr') ? 'fr' : 'en';
+        }
+
+        function setLang(lang) {
+            if (!TRANSLATIONS[lang]) lang = 'en';
+            currentLang = lang;
+            try { localStorage.setItem('lang', lang); } catch (e) { /* ignore */ }
+
+            document.documentElement.lang = lang;
+            document.title = t('page.title');
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                el.textContent = t(el.getAttribute('data-i18n'));
+            });
+            document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+                el.alt = t(el.getAttribute('data-i18n-alt'));
+            });
+            document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
+                btn.textContent = t('lang.switch');
+                btn.title = t('lang.switch.label');
+                btn.setAttribute('aria-label', t('lang.switch.label'));
+            });
+
+            updateCarAge();
+
+            // Refresh the modal caption if a photo is open
+            if (currentModalIndex !== null) {
+                document.getElementById('modalTitle').textContent = t('gallery.' + currentModalIndex + '.title');
+                document.getElementById('modalDescription').textContent = t('gallery.' + currentModalIndex + '.desc');
+            }
+        }
+
+        function toggleLang() {
+            setLang(currentLang === 'en' ? 'fr' : 'en');
+        }
+
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
@@ -563,16 +804,18 @@
         });
 
         // Modal functionality
-        function openModal(imageSrc, title, description) {
+        function openModal(index) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             const modalTitle = document.getElementById('modalTitle');
             const modalDescription = document.getElementById('modalDescription');
-            
-            modalImage.src = imageSrc;
+            const title = t('gallery.' + index + '.title');
+
+            currentModalIndex = index;
+            modalImage.src = GALLERY_IMAGES[index];
             modalImage.alt = title;
             modalTitle.textContent = title;
-            modalDescription.textContent = description;
+            modalDescription.textContent = t('gallery.' + index + '.desc');
             
             modal.classList.add('show');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
@@ -581,6 +824,7 @@
         function closeModal() {
             const modal = document.getElementById('imageModal');
             modal.classList.remove('show');
+            currentModalIndex = null;
             document.body.style.overflow = 'auto'; // Re-enable scrolling
         }
 
@@ -627,29 +871,47 @@
             
             // Convert number to word form for better readability
             const numberToWords = {
-                90: 'ninety',
-                91: 'ninety-one',
-                92: 'ninety-two',
-                93: 'ninety-three',
-                94: 'ninety-four',
-                95: 'ninety-five',
-                96: 'ninety-six',
-                97: 'ninety-seven',
-                98: 'ninety-eight',
-                99: 'ninety-nine',
-                100: 'one hundred'
+                en: {
+                    90: 'ninety',
+                    91: 'ninety-one',
+                    92: 'ninety-two',
+                    93: 'ninety-three',
+                    94: 'ninety-four',
+                    95: 'ninety-five',
+                    96: 'ninety-six',
+                    97: 'ninety-seven',
+                    98: 'ninety-eight',
+                    99: 'ninety-nine',
+                    100: 'one hundred'
+                },
+                fr: {
+                    90: 'quatre-vingt-dix',
+                    91: 'quatre-vingt-onze',
+                    92: 'quatre-vingt-douze',
+                    93: 'quatre-vingt-treize',
+                    94: 'quatre-vingt-quatorze',
+                    95: 'quatre-vingt-quinze',
+                    96: 'quatre-vingt-seize',
+                    97: 'quatre-vingt-dix-sept',
+                    98: 'quatre-vingt-dix-huit',
+                    99: 'quatre-vingt-dix-neuf',
+                    100: 'cent'
+                }
             };
             
             const carAgeElement = document.getElementById('carAge');
             if (carAgeElement) {
                 // Use word form if available, otherwise use number
-                const ageText = numberToWords[carAge] || carAge.toString();
+                const words = numberToWords[currentLang] || numberToWords.en;
+                const ageText = words[carAge] || carAge.toString();
                 carAgeElement.textContent = ageText;
             }
         }
 
-        // Update car age when page loads
-        document.addEventListener('DOMContentLoaded', updateCarAge);
+        // Apply language (and car age) when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setLang(detectInitialLang());
+        });
     </script>
 </body>
 </html>
