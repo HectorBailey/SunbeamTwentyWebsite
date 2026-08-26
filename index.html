@@ -122,73 +122,6 @@
             border-color: #e53e3e;
         }
         
-        /* Hamburger Menu Animation Styles */
-        .hamburger-icon {
-            width: 24px;
-            height: 18px;
-            position: relative;
-            margin: 0;
-            transform: rotate(0deg);
-            transition: .5s ease-in-out;
-            cursor: pointer;
-        }
-        
-        .hamburger-icon span {
-            display: block;
-            position: absolute;
-            height: 2px;
-            width: 100%;
-            background: #4a5568;
-            border-radius: 2px;
-            opacity: 1;
-            left: 0;
-            transform: rotate(0deg);
-            transition: .25s ease-in-out;
-        }
-        
-        .hamburger-icon span:nth-child(1) {
-            top: 0px;
-        }
-        
-        .hamburger-icon span:nth-child(2), .hamburger-icon span:nth-child(3) {
-            top: 8px;
-        }
-        
-        .hamburger-icon span:nth-child(4) {
-            top: 16px;
-        }
-        
-        .hamburger-icon.open span:nth-child(1) {
-            top: 8px;
-            width: 0%;
-            left: 50%;
-        }
-        
-        .hamburger-icon.open span:nth-child(2) {
-            transform: rotate(45deg);
-        }
-        
-        .hamburger-icon.open span:nth-child(3) {
-            transform: rotate(-45deg);
-        }
-        
-        .hamburger-icon.open span:nth-child(4) {
-            top: 8px;
-            width: 0%;
-            left: 50%;
-        }
-        
-        /* Mobile menu animation */
-        .mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        
-        .mobile-menu.open {
-            max-height: 300px;
-        }
-        
         /* Modal Styles */
         .modal {
             display: none;
@@ -301,10 +234,10 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between h-20">
                 <div class="flex items-center">
-                    <div class="text-xl font-bold">
-                        <span class="text-gray-700">Sunbeam</span>
-                        <span class="text-gray-500 mx-1">•</span>
-                        <span class="text-gray-700">Twenty Tourer</span>
+                    <div class="font-bold leading-tight flex flex-col md:block md:text-xl">
+                        <span class="text-gray-700 text-xl">Sunbeam</span>
+                        <span class="text-gray-500 mx-1 hidden md:inline">•</span>
+                        <span class="text-gray-500 md:text-gray-700 text-sm md:text-xl tracking-wide md:tracking-normal">Twenty Tourer</span>
                     </div>
                 </div>
                 
@@ -317,26 +250,18 @@
                     <button type="button" class="lang-toggle" data-lang-toggle onclick="toggleLang()" aria-label="Version française" title="Version française">🇫🇷 FR</button>
                 </div>
                 
-                <!-- Mobile Navigation Button -->
-                <div class="md:hidden flex items-center space-x-4">
+                <!-- Mobile: language toggle only -->
+                <div class="md:hidden flex items-center">
                     <button type="button" class="lang-toggle" data-lang-toggle onclick="toggleLang()" aria-label="Version française" title="Version française">🇫🇷 FR</button>
-                    <div id="mobile-menu-button" class="hamburger-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
                 </div>
             </div>
             
-            <!-- Mobile Navigation Menu -->
-            <div id="mobile-menu" class="md:hidden mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.about">About Sunbeam</a>
-                    <a href="#aboutcar" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.car">This Car</a>
-                    <a href="#specifications" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.specs">Specifications</a>
-                    <a href="#gallery" class="block px-3 py-2 text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.gallery">Gallery</a>
-                </div>
+            <!-- Mobile section links -->
+            <div class="md:hidden flex flex-wrap justify-center gap-x-5 gap-y-1 pb-3 text-sm">
+                <a href="#about" class="text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.about">About Sunbeam</a>
+                <a href="#aboutcar" class="text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.car">This Car</a>
+                <a href="#specifications" class="text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.specs">Specifications</a>
+                <a href="#gallery" class="text-gray-600 hover:text-gray-900 font-medium" data-i18n="nav.gallery">Gallery</a>
             </div>
         </div>
     </nav>
@@ -794,15 +719,6 @@
             setLang(currentLang === 'en' ? 'fr' : 'en');
         }
 
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const hamburger = document.getElementById('mobile-menu-button');
-            
-            mobileMenu.classList.toggle('open');
-            hamburger.classList.toggle('open');
-        });
-
         // Modal functionality
         function openModal(index) {
             const modal = document.getElementById('imageModal');
@@ -851,14 +767,6 @@
                     target.scrollIntoView({
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    const hamburger = document.getElementById('mobile-menu-button');
-                    if (mobileMenu.classList.contains('open')) {
-                        mobileMenu.classList.remove('open');
-                        hamburger.classList.remove('open');
-                    }
                 }
             });
         });
